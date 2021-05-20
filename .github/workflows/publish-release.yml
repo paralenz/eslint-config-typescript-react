@@ -61,8 +61,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - name: Create tag
-        run: |
-          sh ./scripts/tag-version.sh
+        run: ./scripts/tag-version.sh
       - name: Publish
         run: npm publish --access public
       - name: Update Dependencies

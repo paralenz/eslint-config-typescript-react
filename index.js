@@ -57,6 +57,8 @@ module.exports = {
           'JSXSpreadChild'
         ]
       }
-    ]
+    ],
+    "no-useless-constructor": "off",
+    "@typescript-eslint/no-useless-constructor": ["error"]
   }
 }

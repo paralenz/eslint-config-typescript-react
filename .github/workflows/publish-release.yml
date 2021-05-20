@@ -1,0 +1,70 @@
+name: Publish new release
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  setup:
+    name: Setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Set up NPM_AUTH_TOKEN
+        run: npm config set //npm.pkg.github.com/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}
+      - name: Install node_modules
+        run: yarn install --ignore-scripts
+      - uses: actions/cache@v2
+        id: cache
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    needs: [setup]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - uses: actions/cache@v2
+        id: cache
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Run tests
+        run: yarn test
+
+  publish:
+    name: Publish new version
+    runs-on: ubuntu-latest
+    needs: [test]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - uses: actions/cache@v2
+        id: cache
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Create tag
+        run: |
+          sh ./scripts/tag-version.sh
+      - name: Publish
+        run: npm publish --access public
+      - name: Update Dependencies
+        run: |
+              ts-node ./scripts/update-all-dependants.ts

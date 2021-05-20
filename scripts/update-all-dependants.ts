@@ -12,7 +12,7 @@ const THIS_PACKAGE_NAME_WITH_VERSION = `${THIS_PACKAGE_NAME}@${CURRENT_VERSION}`
 
 const client = new GraphQLClient('https://api.github.com/graphql', {
   headers: {
-    Authorization: `Bearer ${process.env.GITHUB_ACCESS_TOKEN}`
+    Authorization: `Bearer ${process.env.ACCESS_TOKEN}`
   }
 })
 
@@ -35,7 +35,7 @@ const getAllRepos = async () => {
 
   const query = gql`
     query {
-      repositoryOwner(login: "${process.env.GITHUB_OWNER}") {
+      repositoryOwner(login: "${process.env.OWNER}") {
         repositories(isFork: false, isLocked: false, first: 100) {
           nodes {
             name
@@ -71,7 +71,7 @@ const packagesOfRepo = content => {
 const getContent = async ({ name }) => {
   const query = gql`
     query($name: String!) {
-      repository(owner: "${process.env.GITHUB_OWNER}", name: $name) {
+      repository(owner: "${process.env.OWNER}", name: $name) {
         object(expression: "HEAD:") {
           ... on Tree {
             entries {

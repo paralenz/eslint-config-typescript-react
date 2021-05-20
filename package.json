@@ -1,6 +1,6 @@
 {
   "name": "@paralenz/eslint-config-typescript-react",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Paralenz eslint configuration for typescript and React",
   "main": "index.js",
   "scripts": {
@@ -23,8 +23,7 @@
     "url": "https://github.com/paralenz/eslint-config-typescript-react/issues"
   },
   "license": "ISC",
-  "devDependencies": {
-    "@types/react": "^17.0.3",
+  "dependencies": {
     "@typescript-eslint/eslint-plugin": "^4.21.0",
     "@typescript-eslint/parser": "^4.21.0",
     "@typescript-eslint/typescript-estree": "^4.8.2",
@@ -39,8 +38,11 @@
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-native": "^3.10.0",
     "eslint-plugin-standard": "^5.0.0",
+    "standard": "^16.0.3"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.3",
     "react": "^17.0.2",
-    "standard": "^16.0.3",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.2"
   }

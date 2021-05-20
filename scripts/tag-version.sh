@@ -1,10 +1,10 @@
 
-#!/usr/bin/env bash
+#!/env bash
 
 function version_gt() { test "$(printf '%s\n' "$@" | sort -V | head -n 1)" != "$1"; }
 
 PACKAGE_NAME=$(cat package.json | grep \\\"name\\\" | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') 
-CURRENT_VERSION = $(npm show "$PACKAGE_NAME" version)
+CURRENT_VERSION=$(npm show "$PACKAGE_NAME" version)
 NEXT_PACKAGE_VERSION=$(cat package.json | grep \\\"version\\\" | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') 
 
 if ! version_gt $NEXT_PACKAGE_VERSION $CURRENT_VERSION; then

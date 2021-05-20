@@ -4,9 +4,7 @@
   "description": "Paralenz eslint configuration for typescript and React",
   "main": "index.js",
   "scripts": {
-    "test": "eslint -c index.js .",
-    "postversion": "sh ./scripts/post-version.sh",
-    "prepublishOnly": "sh ./scripts/pre-publish.sh"
+    "test": "eslint -c index.js ."
   },
   "keywords": [
     "paralenz",

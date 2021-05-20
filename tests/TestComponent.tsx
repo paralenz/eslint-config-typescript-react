@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 
 export default () => {
-  function myFn() { return true }
+  function myFn () { return true }
   myFn()
 
   const myConst = () => { return true }

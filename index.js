@@ -1,5 +1,8 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
+  parserOptions: {
+    'project': './tsconfig.json'
+  },
   extends: [
     'standard',
     'standard-jsx',
@@ -59,6 +62,33 @@ module.exports = {
       }
     ],
     'no-useless-constructor': 'off',
-    '@typescript-eslint/no-useless-constructor': ['error']
+    '@typescript-eslint/no-useless-constructor': ['error'],
+    'max-len': ['error', 120],
+    "camelcase": "off",
+    "@typescript-eslint/naming-convention": ["error",
+      {
+        "selector": "default",
+        "format": ["strictCamelCase"]
+      },
+      {
+        "selector": "typeLike",
+        "format": ["PascalCase"]
+      },
+      {
+        "selector": "objectLiteralProperty",
+        "format": null
+      },
+      {
+        "selector": "variable",
+        "types": ["function"],
+        "format": ["StrictPascalCase", "strictCamelCase"]
+      },
+      {
+        "selector": "variableLike",
+        "modifiers": ["unused"],
+        "leadingUnderscore": "require",
+        "format": null
+      }
+    ]
   }
 }

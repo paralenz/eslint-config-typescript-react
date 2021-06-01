@@ -44,8 +44,6 @@ const describeRule = rule => {
         it(test, async () => {
           const [r] = await eslint.lintFiles([join(dir, test)])
 
-          console.log(r)
-
           const messages = r.messages.filter(msg => msg.ruleId.startsWith(rule))
           const warnings = messages.filter(msg => msg.severity === 1)
           const errors = messages.filter(msg => msg.severity === 2)

@@ -1,0 +1,10 @@
+{
+  "moduleFileExtensions": [
+    "js",
+    "json"
+  ],
+  "rootDir": "tests",
+  "testRegex": ".spec.js$",
+  "testEnvironment": "node",
+  "testTimeout": 15000
+}

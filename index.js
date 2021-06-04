@@ -88,6 +88,15 @@ module.exports = {
         "modifiers": ["unused"],
         "leadingUnderscore": "require",
         "format": null
+      },
+      {
+        "selector": "enumMember",
+        "format": ["PascalCase"]
+      },
+      {
+        "selector": "variable",
+        "format": ["UPPER_CASE", "strictCamelCase"],
+        "modifiers": ["const", "global"]
       }
     ]
   }

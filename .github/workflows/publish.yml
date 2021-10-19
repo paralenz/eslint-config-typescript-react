@@ -23,19 +23,23 @@ jobs:
         run: yarn test
 
   publish:
-    name: Publish new version
-    runs-on: ubuntu-latest
+    name: Create release
     needs: [test]
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: paralenz/actions/setup-node@master
-      - name: Create tag
-        run: |
-          bash ./scripts/tag-version.sh
-      - name: Publish
-        run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+      - uses: ./setup-node
+      - name: Extract version
+        id: extract_version
+        uses: Saionaro/extract-package-version@v1.0.6
+      - name: Print version
+        run: echo ${{ steps.extract_version.outputs.version }}
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          title: v${{ steps.extract_version.outputs.version }}
+          automatic_release_tag: v${{ steps.extract_version.outputs.version }}
       # - name: Update Dependencies
       #   run: |
       #         ts-node ./scripts/update-all-dependants.ts

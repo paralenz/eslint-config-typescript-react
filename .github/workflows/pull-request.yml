@@ -1,17 +1,26 @@
-name: pull-request
-on:
+name: Pull request
+on:  
   pull_request:
-
 jobs:
-  pull-request:
+  title:
+    name: Ensure that title uses gitmoji
+    runs-on: ubuntu-latest
+    steps:
+      - uses: paralenz/actions/gitmoji@master
+
+  setup:
+    name: Setup
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
-      - name: Install node_modules
-        run: yarn
-      - name: Run Test
+      - uses: paralenz/actions/setup-node@master
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    needs: [setup]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: paralenz/actions/setup-node@master
+      - name: Run jest
         run: yarn test
-      

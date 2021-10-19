@@ -16,7 +16,7 @@ jobs:
       - uses: paralenz/actions/setup-node@master
 
   test:
-    name: test
+    name: Test
     runs-on: ubuntu-latest
     needs: [setup]
     steps:

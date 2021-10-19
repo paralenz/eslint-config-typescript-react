@@ -1,6 +1,7 @@
 name: Pull request
 on:  
   pull_request:
+    types: [opened, synchronize, edited]
 jobs:
   title:
     name: Ensure that title uses gitmoji

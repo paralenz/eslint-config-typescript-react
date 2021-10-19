@@ -2,6 +2,12 @@ name: Pull request
 on:  
   pull_request:
 jobs:
+  title:
+    name: Ensure that title uses gitmoji
+    runs-on: ubuntu-latest
+    steps:
+      - uses: paralenz/actions/gitmoji@master
+
   setup:
     name: Setup
     runs-on: ubuntu-latest

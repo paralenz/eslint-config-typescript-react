@@ -16,7 +16,8 @@ module.exports = {
     'import',
     'eslint-plugin-react',
     '@typescript-eslint',
-    'no-unused-react-component-methods'
+    'no-unused-react-component-methods',
+    'react-hooks'
   ],
   rules: {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
@@ -98,6 +99,8 @@ module.exports = {
         "format": ["UPPER_CASE", "strictCamelCase"],
         "modifiers": ["const", "global"]
       }
-    ]
+    ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error"
   }
 }

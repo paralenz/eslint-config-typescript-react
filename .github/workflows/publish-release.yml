@@ -29,7 +29,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: paralenz/actions/setup-node@v1.1.0
-      - uses: paralenz/actions/publish-release@v1.1.0
+      - uses: paralenz/actions/make-release@v1.1.0
       - name: Publish
         run: npm publish --access public
         env:

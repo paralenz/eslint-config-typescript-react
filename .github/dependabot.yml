@@ -9,6 +9,11 @@ updates:
     directory: /
     schedule:
       interval: daily
+    # registries:
+    #   npm-github:
+    #     type: npm-registry
+    #     url: https://npm.pkg.github.com
+    #     token: ${{secrets.NPM_AUTH_TOKEN}}
     reviewers:
       - arelstone
       - fyrstelin
@@ -20,7 +25,7 @@ updates:
       prefix: ⬆️
 
   - package-ecosystem: github-actions
-    directory: .github/workflows
+    directory: /.github/workflows
     schedule:
       interval: daily
     reviewers:

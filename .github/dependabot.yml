@@ -5,22 +5,33 @@
 
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: npm
+    directory: /
     schedule:
-      interval: "daily"
+      interval: daily
     registries:
       npm-github:
         type: npm-registry
         url: https://npm.pkg.github.com
         token: ${{secrets.NPM_AUTH_TOKEN}}
     reviewers:
-      - "paralenz/core-team"
-      
-  - package-ecosystem: "github-actions"
-    directory: ".github/workflows"
+      - paralenz/core-team
+    labels:
+      - dependencies
+      - javascript
+    commit_message:
+      prefix: ⬆️
+
+  - package-ecosystem: github-actions
+    directory: .github/workflows
     schedule:
-      interval: "daily"
+      interval: daily
     reviewers:
-      - "paralenz/core-team"
+      - paralenz/core-team
+    labels:
+      - dependencies
+      - action
+    commit_message:
+      prefix: 👷
+      
 

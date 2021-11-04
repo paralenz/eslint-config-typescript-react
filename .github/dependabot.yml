@@ -21,6 +21,7 @@ updates:
     labels:
       - dependencies
       - javascript
+    open-pull-requests-limit: 0
     commit-message:
       prefix: ⬆️
 

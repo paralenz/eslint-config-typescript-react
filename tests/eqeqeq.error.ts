@@ -1,0 +1,2 @@
+'eqeq' == 'eqeqeq'
+'eqeq' != 'eqeqeq'

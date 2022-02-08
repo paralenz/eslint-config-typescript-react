@@ -64,7 +64,12 @@ module.exports = {
     ],
     'no-useless-constructor': 'off',
     '@typescript-eslint/no-useless-constructor': ['error'],
-    'max-len': ['error', 120],
+    'max-len': ['error', 120, {
+      "ignoreComments": true,
+      "ignoreUrls": true,
+      "ignoreTemplateLiterals": true,
+      "ignoreRegExpLiterals": true
+    }],
     "camelcase": "off",
     "@typescript-eslint/naming-convention": ["error",
       {

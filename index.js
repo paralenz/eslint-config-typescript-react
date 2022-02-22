@@ -103,6 +103,11 @@ module.exports = {
         "selector": "variable",
         "format": ["UPPER_CASE", "strictCamelCase"],
         "modifiers": ["const", "global"]
+      },
+      {
+        "selector": ["variable", "parameter"],
+        "format": null,
+        "modifiers": ["destructured"]
       }
     ],
     "react-hooks/rules-of-hooks": "error",

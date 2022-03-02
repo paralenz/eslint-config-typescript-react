@@ -9,7 +9,7 @@ jobs:
     name: Setup
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: paralenz/actions/setup-node@v1.2.1
 
   test:
@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [setup]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: paralenz/actions/setup-node@v1.2.1
       - name: Run tests
         run: yarn test
@@ -27,7 +27,7 @@ jobs:
     needs: [test]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: paralenz/actions/setup-node@v1.2.1
       - uses: paralenz/actions/make-release@v1.2.1
       - name: Publish

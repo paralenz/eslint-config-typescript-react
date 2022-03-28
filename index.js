@@ -112,6 +112,7 @@ module.exports = {
     ],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error",
-    "react/react-in-jsx-scope": 0
+    "react/react-in-jsx-scope": 0,
+    'comma-dangle': ['error', 'always-multiline']
   }
 }

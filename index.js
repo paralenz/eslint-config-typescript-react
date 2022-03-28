@@ -64,54 +64,73 @@ module.exports = {
     ],
     'no-useless-constructor': 'off',
     '@typescript-eslint/no-useless-constructor': ['error'],
-    'max-len': ['error', 120, {
-      "ignoreComments": true,
-      "ignoreUrls": true,
-      "ignoreTemplateLiterals": true,
-      "ignoreRegExpLiterals": true
+    'max-len': ['error', {
+      'code': 120,
+      'ignoreComments': true,
+      'ignoreUrls': true,
+      'ignoreTemplateLiterals': true,
+      'ignoreRegExpLiterals': true
     }],
-    "camelcase": "off",
-    "@typescript-eslint/naming-convention": ["error",
+    'camelcase': 'off',
+    '@typescript-eslint/naming-convention': ['error',
       {
-        "selector": "default",
-        "format": ["strictCamelCase"]
+        'selector': 'default',
+        'format': ['strictCamelCase']
       },
       {
-        "selector": "typeLike",
-        "format": ["PascalCase"]
+        'selector': 'typeLike',
+        'format': ['PascalCase']
       },
       {
-        "selector": "objectLiteralProperty",
-        "format": null
+        'selector': 'objectLiteralProperty',
+        'format': null
       },
       {
-        "selector": "variable",
-        "types": ["function"],
-        "format": ["StrictPascalCase", "strictCamelCase"]
+        'selector': 'variable',
+        'types': ['function'],
+        'format': ['StrictPascalCase', 'strictCamelCase']
       },
       {
-        "selector": "variableLike",
-        "modifiers": ["unused"],
-        "leadingUnderscore": "require",
-        "format": null
+        'selector': 'variableLike',
+        'modifiers': ['unused'],
+        'leadingUnderscore': 'require',
+        'format': null
       },
       {
-        "selector": "enumMember",
-        "format": ["PascalCase"]
+        'selector': 'enumMember',
+        'format': ['PascalCase']
       },
       {
-        "selector": "variable",
-        "format": ["UPPER_CASE", "strictCamelCase"],
-        "modifiers": ["const", "global"]
+        'selector': 'variable',
+        'format': ['UPPER_CASE', 'strictCamelCase'],
+        'modifiers': ['const', 'global']
       },
       {
-        "selector": ["variable", "parameter"],
-        "format": null,
-        "modifiers": ["destructured"]
+        'selector': ['variable', 'parameter'],
+        'format': null,
+        'modifiers': ['destructured']
       }
     ],
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "error",
-    "react/react-in-jsx-scope": 0
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'error',
+    'react/react-in-jsx-scope': 0,
+    'import/order': ['error', {
+      'groups': [
+        'builtin',
+        'external',
+        'internal',
+        'parent',
+        'sibling',
+        'index',
+        'unknown',
+        'object'
+      ],
+      'pathGroups': [
+        {
+          'pattern': '~/**',
+          'group': 'internal'
+        }
+      ]
+    }],
   }
 }

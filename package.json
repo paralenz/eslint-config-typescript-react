@@ -1,6 +1,6 @@
 {
   "name": "@paralenz/eslint-config-typescript-react",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Paralenz eslint configuration for typescript and React",
   "main": "index.js",
   "scripts": {

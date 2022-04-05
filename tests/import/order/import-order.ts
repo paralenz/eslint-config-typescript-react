@@ -1,5 +1,5 @@
 import * as babelTemplate from '@babel/template'
-import {longVariable} from '../../max-len/long.error'
+import { longVariable } from '../../max-len/long.error'
 
 export default () => {
   return {

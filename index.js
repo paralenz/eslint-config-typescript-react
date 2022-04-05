@@ -115,21 +115,14 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'error',
     'react/react-in-jsx-scope': 0,
     'import/order': ['error', {
+      'newlines-between': 'never',
       'groups': [
-        'builtin',
-        'external',
         'internal',
+        'external',
+        'builtin',
         'parent',
         'sibling',
-        'index',
-        'unknown',
-        'object'
-      ],
-      'pathGroups': [
-        {
-          'pattern': '~/**',
-          'group': 'internal'
-        }
+        'index'
       ]
     }],
   }

@@ -23,7 +23,12 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     'no-use-before-define': 'off',
     'react/prop-types': 'off',
-    '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/no-unused-vars': ['error', {
+      "args": "none",
+      "caughtErrors": "none",
+      "ignoreRestSiblings": true,
+      "vars": "all"
+    }],
     '@typescript-eslint/no-empty-function': 'warn',
     'react/no-did-update-set-state': 'off',
     'react/jsx-handler-names': 'off',
@@ -36,7 +41,6 @@ module.exports = {
       checkAttributes: true,
       indentLogicalExpressions: true
     }],
-    eqeqeq: ['error', 'always'],
     'react/jsx-first-prop-new-line': ['error', 'multiline-multiprop'],
     'react/jsx-closing-bracket-location': ['warn', 'line-aligned'],
     'react/jsx-indent-props': ['error', 2],
@@ -106,9 +110,8 @@ module.exports = {
         'modifiers': ['const', 'global']
       },
       {
-        'selector': ['variable', 'parameter'],
-        'format': null,
-        'modifiers': ['destructured']
+        'selector': 'function',
+        'format': ['strictCamelCase', 'StrictPascalCase']
       }
     ],
     'react-hooks/rules-of-hooks': 'error',

@@ -86,7 +86,7 @@ module.exports = {
         'format': ['PascalCase']
       },
       {
-        'selector': 'objectLiteralProperty',
+        'selector': ['objectLiteralProperty', 'objectLiteralMethod'],
         'format': null
       },
       {

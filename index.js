@@ -62,7 +62,8 @@ module.exports = {
           'JSXClosingElement',
           'JSXText',
           'JSXEmptyExpression',
-          'JSXSpreadChild'
+          'JSXSpreadChild',
+          'PropertyDefinition'
         ]
       }
     ],
@@ -91,7 +92,7 @@ module.exports = {
       },
       {
         'selector': 'enumMember',
-        'format': ['PascalCase']
+        'format': ['PascalCase', 'UPPER_CASE']
       },
       {
         'selector': 'variable',

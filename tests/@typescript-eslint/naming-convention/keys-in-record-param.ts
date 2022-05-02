@@ -1,4 +1,4 @@
-import { fold } from 'some-where'
+const fold: any = null
 
 fold({
   Registered: () => true

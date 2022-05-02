@@ -79,7 +79,7 @@ module.exports = {
     '@typescript-eslint/naming-convention': ['error',
       {
         'selector': 'default',
-        'format': ['strictCamelCase']
+        'format': ['camelCase', 'PascalCase']
       },
       {
         'selector': 'typeLike',
@@ -90,28 +90,13 @@ module.exports = {
         'format': null
       },
       {
-        'selector': 'variable',
-        'types': ['function'],
-        'format': ['StrictPascalCase', 'strictCamelCase']
-      },
-      {
-        'selector': 'variableLike',
-        'modifiers': ['unused'],
-        'leadingUnderscore': 'require',
-        'format': null
-      },
-      {
         'selector': 'enumMember',
         'format': ['PascalCase']
       },
       {
         'selector': 'variable',
-        'format': ['UPPER_CASE', 'strictCamelCase'],
+        'format': ['UPPER_CASE', 'camelCase', 'PascalCase'],
         'modifiers': ['const', 'global']
-      },
-      {
-        'selector': 'function',
-        'format': ['strictCamelCase', 'StrictPascalCase']
       }
     ],
     'react-hooks/rules-of-hooks': 'error',
